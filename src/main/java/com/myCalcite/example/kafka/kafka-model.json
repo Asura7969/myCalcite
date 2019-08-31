@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "defaultSchema": "KAFKA",
+  "schemas": [
+    {
+      "name": "KAFKA",
+      "tables":[
+        {
+          "name":"JSONTABLE",
+          "type": "custom",
+          "factory": "com.myCalcite.example.kafka.KafkaTableFactory",
+          "operand": {
+            "converter.type": "json",
+            "data.type": {
+              "metric":"string",
+              "iface":"string",
+              "rpcid":"string",
+              "logValue":"double"
+            },
+            "consumer.params": {
+              "bootstrap.servers": "47.99.61.133:9092,47.110.148.212:9092,47.110.225.177:9092",
+              "topic.name": "wy-test",
+              "group.id": "test",
+              "key.deserializer": "org.apache.kafka.common.serialization.StringDeserializer",
+              "value.deserializer": "org.apache.kafka.common.serialization.StringDeserializer"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
